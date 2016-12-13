@@ -1,23 +1,33 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="my-icons.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 
-<dom-module id="my-app">
+<dom-module id="ss-app">
   <template>
     <style>
       :host {
-        --app-primary-color: #f57c00;
-        --app-secondary-color: #fff;
+        --app-primary-dark-color: #f57c00;
+        --app-primary-color: #ff9800;
+        --app-primary-color-light: #ffe0b2;
+        --app-text-icon-color: #212121;
+        --app-accent-color: #ff5722;
+        --app-text-primary-color: #212121;
+        --app-text-secondary-color: #757575;
+        --app-divider-color: #BDBDBD;
+        
+        color: #fff;
 
         display: block;
       }
@@ -28,15 +38,11 @@
         left: 0;
         width: 100%;
         height: 45%;
-        color: #fff;
-        background-color: #f57c00;
+        background-color: var(--app-primary-dark-color);
         --app-header-background-front-layer: {
           background-image: url(/images/background.jpg);
           background-position: left center;
         };
-      }
-      app-header paper-icon-button {
-        --paper-icon-button-ink-color: white;
       }
 
       [main-title] {
@@ -50,6 +56,29 @@
         text-overflow: ellipsis;
       }
 
+      app-drawer paper-toolbar {
+        background-color: var(--app-accent-color)
+
+      }
+      app-drawer paper-toolbar .logo {
+        width: 100%;
+        height: 240%;
+        display: flex;
+      }
+
+      app-drawer paper-toolbar .logo iron-image {
+        width:30%;
+        height:100%;
+      }
+
+      app-drawer paper-toolbar .logo .logo-text {
+        width:70%;
+        font-family: 'Great Vibes', cursive;
+        font-size: 2.7vw;
+        line-height: 1.0;
+        vertical-align: middle;
+      }
+
       .drawer-list {
         margin: 0 20px;
       }
@@ -58,12 +87,13 @@
         display: block;
         padding: 0 16px;
         text-decoration: none;
-        color: var(--app-secondary-color);
+        color: var(--app-text-primary-color);
         line-height: 40px;
       }
 
       .drawer-list a.iron-selected {
-        color: black;
+        background-color: var(--app-primary-color-dark);
+        color: var(--app-text-primary-color);
         font-weight: bold;
       }
     </style>
@@ -78,22 +108,29 @@
     <app-drawer-layout force-narrow>
       <!-- Drawer content -->
       <app-drawer id="drawer" swipe-open>
-        <app-toolbar>Menu</app-toolbar>
+        <paper-toolbar class="tall">
+          <div class="middle logo">
+            <iron-image sizing="contain" src="/images/logo.png"></iron-image>
+            <div class="logo-text"><p>SLower Silesia</p></div>
+          </div>
+        </paper-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="/view1">View One</a>
-          <a name="view2" href="/view2">View Two</a>
-          <a name="view3" href="/view3">View Three</a>
+          <a name="trips" href="/tours">Tours</a>
+          <a name="lower-silesia" href="/lower-silesia">Lower Silesia</a>
+          <a name="offer" href="/offer">Offer</a>
+          <a name="testimonials" href="/testimonials">Testimonials</a>
+          <a name="about-us" href="/about-us">About us</a>
+          <a name="contact" href="/contact">Contact</a>
         </iron-selector>
       </app-drawer>
 
       <!-- Main content -->
       <app-header-layout>
 
-        <app-header condenses reveals effects="waterfall resize-title blend-background parallax-background">
+        <app-header condenses reveals effects="material">
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-            <h4 condensed-title>SLower Silesia</h4>
-            <paper-icon-button icon="search"></paper-icon-button>
+            <h4 condensed-title>Tours</h4>
           </app-toolbar>
           <app-toolbar class="tall">
             <h1 main-title>SLower Silesia</h1>
@@ -105,7 +142,7 @@
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <my-view1 name="view1"></my-view1>
+          <ss-tours name="tours"></ss-tours>
           <my-view2 name="view2"></my-view2>
           <my-view3 name="view3"></my-view3>
           <my-view404 name="view404"></my-view404>
@@ -116,7 +153,7 @@
 
   <script>
     Polymer({
-      is: 'my-app',
+      is: 'ss-app',
 
       properties: {
         page: {
@@ -132,12 +169,12 @@
 
       _routePageChanged: function(page) {
         this.$.drawer.close();
-        this.page = page || 'view1';
+        this.page = page || 'trips';
       },
 
       _pageChanged: function(page) {
         // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+        var resolvedPageUrl = this.resolveUrl('pages/' + page + '.html');
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },
 
