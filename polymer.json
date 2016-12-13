@@ -1,11 +1,8 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/slowersilesia.html",
+  "shell": "src/ss-app.html",
   "fragments": [
-    "src/trips.html",
-    "src/my-view2.html",
-    "src/my-view3.html",
-    "src/my-view404.html"
+    "src/pages/tours.html"
   ],
   "sourceGlobs": [
    "src/**/*",
