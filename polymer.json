@@ -2,7 +2,8 @@
   "entrypoint": "index.html",
   "shell": "src/ss-app.html",
   "fragments": [
-    "src/pages/tours.html"
+    "src/pages/tours.html",
+    "src/pages/contact.html"
   ],
   "sourceGlobs": [
    "src/**/*",
