@@ -1,3 +1,4 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
@@ -13,7 +14,9 @@
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../bower_components/paper-styles/typography.html">
-<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+
 
 <dom-module id="ss-app">
   <template>
@@ -120,6 +123,12 @@
       }
     </style>
 
+    <firebase-app api-key="AIzaSyDdJn7hjSl6jW285Nn8jYam2s0rlkopVlA"
+      auth-domain="com-slowersilesia.firebaseapp.com"
+      database-url="https://com-slowersilesia.firebaseio.com">
+    </firebase-app>
+    <firebase-auth></firebase-auth>
+
     <app-location route="{{route}}"></app-location>
     <app-route
         route="{{route}}"
@@ -160,14 +169,16 @@
           </div>
         </app-header>
 
-        <iron-pages
-            selected="[[page]]"
-            attr-for-selected="name"
-            fallback-selection="tours"
-            role="main">
+        <iron-pages selected="[[page]]"
+          attr-for-selected="name"
+          fallback-selection="tours"
+          role="main">
           <ss-tours name="tours"></ss-tours>
-          <ss-about-us name="about-us"></ss-about-us>
           <ss-lower-silesia name="lower-silesia"></ss-lower-silesia>
+          <ss-offer name="offer"></ss-offer>
+          <ss-testimonials name="testimonials"></ss-testimonials>
+          <ss-about-us name="about-us"></ss-about-us>
+          <ss-contact name="contact"></ss-contact>
         </iron-pages>
       </app-header-layout>
     </app-drawer-layout>
