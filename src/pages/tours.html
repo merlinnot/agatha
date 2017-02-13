@@ -6,6 +6,7 @@
 <link rel="import" href="../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../../bower_components/paper-styles/color.html">
 <link rel="import" href="../../bower_components/polymerfire/firebase-query.html">
+<link rel="import" href="../../bower_components/polymerfire/firebase-document.html">
 <link rel="import" href="../ss-styles.html">
 
 <dom-module id="ss-tours">
@@ -27,7 +28,8 @@
     </style>
 
     <firebase-query path="/tours"
-      data="{{_tours}}">
+      data="{{_tours}}"
+      log>
     </firebase-query>
 
     <iron-selector multi selected-items="{{_selected}}">

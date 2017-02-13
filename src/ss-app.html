@@ -14,8 +14,7 @@
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../bower_components/paper-styles/typography.html">
-<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
-<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../bower_components/polymerfire/polymerfire.html">
 
 
 <dom-module id="ss-app">
@@ -30,7 +29,7 @@
         --app-text-primary-color: #212121;
         --app-text-secondary-color: #757575;
         --app-divider-color: #BDBDBD;
-        
+
         color: #fff;
 
         display: block;
@@ -125,16 +124,16 @@
 
     <firebase-app api-key="AIzaSyDdJn7hjSl6jW285Nn8jYam2s0rlkopVlA"
       auth-domain="com-slowersilesia.firebaseapp.com"
-      database-url="https://com-slowersilesia.firebaseio.com">
+      database-url="https://com-slowersilesia.firebaseio.com"
+      storage-bucket="com-slowersilesia.appspot.com" log>
     </firebase-app>
-    <firebase-auth></firebase-auth>
 
     <app-location route="{{route}}"></app-location>
-    <app-route
-        route="{{route}}"
-        pattern="/:page"
-        data="{{routeData}}"
-        tail="{{subroute}}"></app-route>
+    <app-route route="{{route}}"
+      pattern="/:page"
+      data="{{routeData}}"
+      tail="{{subroute}}">
+    </app-route>
 
     <app-drawer-layout force-narrow>
       <!-- Drawer content -->
