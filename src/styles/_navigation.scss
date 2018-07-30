@@ -30,6 +30,7 @@ div#toolbar {
   display: flex;
   flex-direction: row;
   height: $toolbar-height;
+  margin-bottom: $toolbar-height;
 
   > button {
     color: $color-white;
