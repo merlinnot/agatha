@@ -1,0 +1,29 @@
+@import 'constants';
+@import 'navigation';
+
+div#container {
+  align-items: center;
+  background: $color-accent;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - #{$toolbar-height});
+  justify-content: center;
+
+  amp-iframe .amp-active > div {
+    display: none;
+  }
+
+  a {
+    background-color: inherit;
+    border: 1px solid $color-white;
+    color: $color-white;
+    font-size: inherit;
+    padding: 1rem;
+    text-decoration: none;
+
+    &:hover {
+      background: $color-white;
+      color: $color-accent;
+    }
+  }
+}

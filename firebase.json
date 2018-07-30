@@ -1,14 +1,28 @@
 {
-  "database": {
-    "rules": "database.rules.json"
-  },
   "hosting": {
-    "public": "build/unbundled",
-    "rewrites": [
+    "cleanUrls": true,
+    "headers": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value":
+              "public, max-age=300, s-maxage=300, stale-while-revalidate=60, stale-if-error=86400"
+          }
+        ],
+        "source": "**"
+      },
+      {
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, s-maxage=31536000"
+          }
+        ],
+        "source": "assets/**"
       }
-    ]
+    ],
+    "public": "dist",
+    "trailingSlash": false
   }
 }

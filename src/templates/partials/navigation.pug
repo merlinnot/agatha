@@ -1,0 +1,40 @@
+-
+  var navigationItems = [{
+      'id': 'tours',
+      'name': 'Tours',
+      'href': '/tours',
+    }, {
+      'id': 'lower-silesia',
+      'name': 'Lower Silesia',
+      'href': '/lower-silesia',
+    }, {
+      'id': 'offer',
+      'name': 'Offer',
+      'href': '/offer',
+    }, {
+      'id': 'testimonials',
+      'name': 'Testimonials',
+      'href': '/testimonials',
+    }, {
+      'id': 'about-us',
+      'name': 'About us',
+      'href': '/about-us',
+    }, {
+      'id': 'contact',
+      'name': 'Contact',
+      'href': '/contact',
+    }] 
+
+mixin navigation(pageName)
+  amp-sidebar(id="sidebar" layout="nodisplay" side="right")
+    nav(toolbar="(min-width: 45rem)" toolbar-target="toolbar-navigation")
+      ul
+        each page in navigationItems
+          li
+            a(
+              href=page.href class=pageName === page.id ? "active" : ""
+            ) #{page.name}
+
+  div(id="toolbar")
+    div(id="toolbar-navigation")
+    button(on="tap:sidebar.open") ☰

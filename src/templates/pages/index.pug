@@ -1,0 +1,29 @@
+doctype html
+html(⚡)
+  head
+    include ../partials/head/meta
+    include ../partials/head/link
+    include ../partials/head/amp
+    script(
+      async
+      custom-element="amp-iframe"
+      src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"
+    )
+  body
+    include ../partials/navigation
+    +navigation()
+  div(id="container")
+    amp-iframe(
+      width="320"
+      height="424"
+      sandbox="allow-scripts"
+      layout="fixed"
+      frameborder="0"
+      src="/assets/animations/logo.html"
+    )
+      amp-img(
+        layout="fill"
+        src="/assets/animations/logo.jpg"
+        placeholder
+      )
+    a(href="/tours") Start the yourney

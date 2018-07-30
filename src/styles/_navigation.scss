@@ -1,0 +1,73 @@
+@import 'base';
+@import 'constants';
+
+nav > ul {
+  list-style: none;
+  padding-left: 0;
+
+  > li > a {
+    box-sizing: border-box;
+    color: $color-white;
+    display: block;
+    height: $toolbar-height;
+    line-height: $toolbar-height;
+    font-size: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $color-accent;
+      background-color: $color-white;
+    }
+  }
+}
+
+div#toolbar {
+  background: $color-accent;
+  display: flex;
+  flex-direction: row;
+  height: $toolbar-height;
+
+  > button {
+    color: $color-white;
+    font-size: inherit;
+    margin-left: auto;
+    width: 4rem;
+    border: none;
+    background-color: $color-accent;
+  }
+
+  @media (min-width: $toolbar-breakpoint) {
+    button {
+      display: none;
+    }
+  }
+
+  @media (min-width: $max-width) {
+    div#toolbar-navigation {
+      margin-left: calc((100% - #{$max-width}) / 2);
+    }
+  }
+
+  div#toolbar-navigation > nav > ul > li > a.active {
+    background-image: url("/assets/images/mountain-horizontal.svg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: auto 100%;
+  }
+}
+
+amp-sidebar {
+  background-color: $color-accent;
+  width: 16rem;
+
+  nav > ul > li > a.active {
+    background-image: url("/assets/images/mountain-vertical.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+  }
+}
