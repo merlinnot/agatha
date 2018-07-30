@@ -39,7 +39,8 @@
   "name": "com-slowersilesia",
   "prettier": {
     "singleQuote": true,
-    "trailingComma": "all"
+    "trailingComma": "all",
+    "proseWrap": "always"
   },
   "repository": {
     "type": "git",

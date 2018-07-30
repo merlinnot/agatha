@@ -12,11 +12,11 @@ how to deploy the project on a live system.
 
 Minimal requirements to set up the project:
 
-- [Node.js](https://nodejs.org/en) v10, installation instructions can be
-  found on the official website, I can personally recommend using
-  [Node Version Manager](https://github.com/creationix/nvm#readme). It can
-  be installed in
-  a [few commands](https://nodejs.org/en/download/package-manager/#nvm).
+- [Node.js](https://nodejs.org/en) v10, installation instructions can be found
+  on the official website, I can personally recommend using
+  [Node Version Manager](https://github.com/creationix/nvm#readme). It can be
+  installed in a
+  [few commands](https://nodejs.org/en/download/package-manager/#nvm).
 - A package manager like [Yarn](https://yarnpkg.com) or
   [NPM](https://www.npmjs.com). All instructions in the documentation will
   follow the NPM syntax.
@@ -31,13 +31,14 @@ git clone git@github.com:merlinnot/com-slowersiesia.git
 ```
 
 In case you don't have a git client, you can get the latest version directly
-using [this link](https://github.com/merlinnot/com-merlinnot/archive/master.zip)
+using
+[this link](https://github.com/merlinnot/com-slowersilesia/archive/master.zip)
 and extracting the downloaded archive.
 
 Go the the right directory and install dependencies:
 
 ```bash
-cd com-merlinnot
+cd com-slowersilesia
 npm install
 ```
 
@@ -45,8 +46,8 @@ That's it! You can now go to the next step.
 
 ### Local development server
 
-[Gulp](http://gulpjs.com) is a tool of choice to run both development and
-build tasks. For convenience purposes some tasks are exported as NPM scripts,
+[Gulp](http://gulpjs.com) is a tool of choice to run both development and build
+tasks. For convenience purposes some tasks are exported as NPM scripts,
 including starting the development server:
 
 ```bash
@@ -64,14 +65,14 @@ once.
 ### Accelerated Mobile Pages compliance
 
 Compliance check is baked into the development server, you can see all of the
-errors in the console. Validation is also being performed at build time,
-failing the build in case of errors.
+errors in the console. Validation is also being performed at build time, failing
+the build in case of errors.
 
 ### Formatting
 
 This project uses [Prettier](https://prettier.io) to automate formatting. All
-supported files in use are being reformatted in a precommit hook. You can
-also use two scripts to validate and optionally fix all of the files:
+supported files in use are being reformatted in a precommit hook. You can also
+use two scripts to validate and optionally fix all of the files:
 
 ```bash
 npm run format
