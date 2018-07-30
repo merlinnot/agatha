@@ -30,7 +30,7 @@
   },
   "license": "MIT",
   "lint-staged": {
-    "*.{js,md,scss}": [
+    "*.{js,md,scss,yaml}": [
       "prettier --write",
       "git add"
     ]
@@ -48,8 +48,8 @@
   },
   "scripts": {
     "build": "gulp build",
-    "format:fix": "prettier --write src/**/*.scss *.{js,md}",
-    "format": "prettier --list-different **/*.scss *.{js,md}",
+    "format:fix": "prettier --write src/**/*.scss *.{js,md,yaml}",
+    "format": "prettier --list-different src/**/*.scss *.{js,md,yaml}",
     "start:dev": "gulp watch",
     "deploy": "firebase deploy --project com-slowersilesia",
     "test": "echo \"Error: no test specified\" && exit 1"

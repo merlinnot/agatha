@@ -53,7 +53,7 @@ div#toolbar {
   }
 
   div#toolbar-navigation > nav > ul > li > a.active {
-    background-image: url("/assets/images/mountain-horizontal.svg");
+    background-image: url('/assets/images/mountain-horizontal.svg');
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: auto 100%;
@@ -65,7 +65,7 @@ amp-sidebar {
   width: 16rem;
 
   nav > ul > li > a.active {
-    background-image: url("/assets/images/mountain-vertical.svg");
+    background-image: url('/assets/images/mountain-vertical.svg');
     background-repeat: no-repeat;
     background-position: left center;
     background-size: auto 100%;

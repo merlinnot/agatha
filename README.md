@@ -113,7 +113,7 @@ version and to make sure it looks exactly as it should.
 
 ### Automation
 
-- [CircleCI](https://circleci.com)
+- [Google Cloud Build](https://cloud.google.com/cloud-build/)
 - [Netlify](https://www.netlify.com)
 - [Renovate](https://renovatebot.com)
 

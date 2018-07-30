@@ -1,0 +1,41 @@
+steps:
+  - name: node:10-slim
+    id: dependencies
+    entrypoint: npm
+    args:
+      - ci
+  - name: node:10-slim
+    id: format
+    waitFor:
+      - dependencies
+    entrypoint: npm
+    args:
+      - run
+      - format
+  - name: node:10-slim
+    id: build
+    waitFor:
+      - format
+    entrypoint: npm
+    args:
+      - run
+      - build
+  - name: node:10-slim
+    id: deploy
+    waitFor:
+      - build
+    entrypoint: bash
+    args:
+      - '-c'
+      - |
+        if [[ "$BRANCH_NAME" == "master" ]]; then
+          npm run deploy --silent -- --token "$$FIREBASE_TOKEN"
+        fi
+    secretEnv:
+      - FIREBASE_TOKEN
+secrets:
+  - kmsKeyName: >-
+      projects/com-merlinnot-build/locations/global/keyRings/environments/cryptoKeys/production
+    secretEnv:
+      FIREBASE_TOKEN: >-
+        CiQAx18bzajOPZYhPOfgj+7rtjNjZTkJlm5eufqOz6EjapeXtC8SVwBsPsgxD0K8rvTKUFsmn0K3r30X6WimZ0q+PGsH6sei95dBeTnKxjRVU4+TUtGRxLwq+y3iRlyYhFYV2J6AjDxKNwMXMD98V6IsBTWQRaFvJXx90Ha3Zg==
