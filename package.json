@@ -16,7 +16,7 @@
     "gulp-pug": "4.0.1",
     "gulp-replace": "1.0.0",
     "gulp-sass": "4.0.2",
-    "husky": "0.14.3",
+    "husky": "3.0.9",
     "lint-staged": "7.3.0",
     "merge-stream": "1.0.1",
     "prettier": "1.14.3",
